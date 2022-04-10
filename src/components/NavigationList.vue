@@ -5,9 +5,9 @@
 	>
 		<div class="row-nav">
 			<div
-				@mouseenter="$emit('enterRowNav')"
-				@mouseleave="$emit('leaveRowNav')"
 				class="row-nav__left"
+				@mouseenter="hoverRowNav(true)"
+				@mouseleave="hoverRowNav(false)"
 			>
 				<span
 					v-if="expandState"
@@ -38,13 +38,11 @@
 					v-if="item.list"
 					:list="item.list"
 					:listTitle="item.title"
-					@enter-row-nav="$emit('enterRowNav')"
-					@leave-row-nav="$emit('leaveRowNav')"
+					@hover-row-nav="hoverRowNav"
 				></NavigationList>
 				<NavigationItem
 					v-else
-					@enter-row-nav="$emit('enterRowNav')"
-					@leave-row-nav="$emit('leaveRowNav')"
+					@hover-row-nav="hoverRowNav"
 				>
 					<router-link
 						:to="{name: 'viewProject', params: {link: item.link}}"
@@ -56,8 +54,8 @@
 		<div class="row-nav row-nav_close">
 			<div
 				class="row-nav__left"
-				@mouseenter="$emit('enterRowNav')"
-				@mouseleave="$emit('leaveRowNav')"
+				@mouseenter="hoverRowNav(true)"
+				@mouseleave="hoverRowNav(false)"
 			></div>
 			<span class="row-nav__link add-closetag">{{listTitle}}</span>
 		</div>
@@ -65,7 +63,7 @@
 </template>
 
 <script>
-import NavigationItem from '@/components/NavigationItem.vue'
+import NavigationItem from '@/components/NavigationItem'
 
 export default {
 	name: 'NavigationList',
@@ -84,6 +82,9 @@ export default {
 	methods: {
 		expandList: function() {
 			this.expandState = !this.expandState
+		},
+		hoverRowNav: function(bool) {
+			this.$emit('hoverRowNav', bool)
 		}
 	}
 }

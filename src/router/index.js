@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import LogoAnimateView from '../views/LogoAnimateView.vue'
-import ProjectView from '../views/ProjectView.vue'
-import ContactsView from '../views/ContactsView.vue'
+import LogoAnimateView from '@/views/LogoAnimateView'
+import ProjectView from '@/views/ProjectView'
+import ContactsView from '@/views/ContactsView'
 
 const routes = [
 	{

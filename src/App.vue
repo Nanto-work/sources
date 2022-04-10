@@ -1,9 +1,17 @@
 <template>
 	<div class="wrapper">
-		<Header></Header>
-		<Sidebar
+		<header class="header">
+			<HeaderLogo/>
+			<HeaderBurger
+				:sidebarState="sidebarOpen"
+				@show-sidebar="toggleSidebar"
+			>
+			</HeaderBurger>
+		</header>
+		<SidebarComponent
+			:class="{'sidebar_open': sidebarOpen}"
 			:projects="projects"
-		></Sidebar>
+		></SidebarComponent>
 		<section class="content">
 			<router-view/>
 		</section>
@@ -11,19 +19,27 @@
 </template>
 
 <script>
-import Header from '@/components/Header.vue'
-import Sidebar from '@/components/Sidebar.vue'
+import HeaderLogo from '@/components/HeaderLogo'
+import HeaderBurger from '@/components/HeaderBurger'
+import SidebarComponent from '@/components/SidebarComponent'
 import {PROJECTS} from './projects.js'
 
 export default {
-	name: 'Home',
+	name: 'MainApp',
 	components: {
-		Header,
-		Sidebar
+		HeaderLogo,
+		HeaderBurger,
+		SidebarComponent
 	},
 	data() {
 		return {
-			projects: PROJECTS
+			projects: PROJECTS,
+			sidebarOpen: false
+		}
+	},
+	methods: {
+		toggleSidebar: function(bool) {
+			this.sidebarOpen = bool
 		}
 	}
 }

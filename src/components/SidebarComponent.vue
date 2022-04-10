@@ -2,18 +2,16 @@
 	<aside class="sidebar">
 		<ul
 			class="navigation"
-			:class="hoverClass"
+			:class="{'navigation_showexpand': hoverClass}"
 			@click.prevent
 		>
 			<NavigationList
 				:list="projects"
 				:listTitle="'projects'"
-				@enter-row-nav="hoverClass = 'navigation_showexpand'"
-				@leave-row-nav="hoverClass = ''"
+				@hover-row-nav="toggleHoverClass"
 			></NavigationList>
 			<NavigationItem
-				@enter-row-nav="hoverClass = 'navigation_showexpand'"
-				@leave-row-nav="hoverClass = ''"
+				@hover-row-nav="toggleHoverClass"
 			>
 				<router-link
 					:to="{name: 'viewContacts'}"
@@ -21,20 +19,19 @@
 				>contacts</router-link>
 			</NavigationItem>
 			<ColorList
-				@enter-row-nav="hoverClass = 'navigation_showexpand'"
-				@leave-row-nav="hoverClass = ''"
+				@hover-row-nav="toggleHoverClass"
 			></ColorList>
 		</ul>
 	</aside>
 </template>
 
 <script>
-import NavigationList from '@/components/NavigationList.vue'
-import NavigationItem from '@/components/NavigationItem.vue'
-import ColorList from '@/components/ColorList.vue'
+import NavigationList from '@/components/NavigationList'
+import NavigationItem from '@/components/NavigationItem'
+import ColorList from '@/components/ColorList'
 
 export default {
-	name: 'Sidebar',
+	name: 'SidebarComponent',
 	components: {
 		NavigationItem,
 		NavigationList,
@@ -45,9 +42,13 @@ export default {
 	},
 	data() {
 		return {
-			hoverClass: ''
+			hoverClass: false
+		}
+	},
+	methods: {
+		toggleHoverClass: function(bool) {
+			this.hoverClass = bool
 		}
 	}
 }
-
 </script>

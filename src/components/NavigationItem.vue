@@ -3,8 +3,8 @@
 		<div class="row-nav">
 			<div
 				class="row-nav__left"
-				@mouseenter="$emit('enterRowNav')"
-				@mouseleave="$emit('leaveRowNav')"
+				@mouseenter="hoverRowNav(true)"
+				@mouseleave="hoverRowNav(false)"
 			></div>
 			<slot></slot>
 		</div>
@@ -13,6 +13,17 @@
 
 <script>
 export default {
-	name: 'NavigationItem'
+	name: 'NavigationItem',
+	data() {
+		return {
+			burgerAnimate: true,
+			sidebarOpen: this.sidebarState
+		}
+	},
+	methods: {
+		hoverRowNav: function(bool) {
+			this.$emit('hoverRowNav', bool)
+		}
+	}
 }
 </script>

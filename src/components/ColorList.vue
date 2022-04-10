@@ -5,9 +5,9 @@
 	>
 		<div class="row-nav">
 			<div
-				@mouseenter="$emit('enterRowNav')"
-				@mouseleave="$emit('leaveRowNav')"
 				class="row-nav__left"
+				@mouseenter="hoverRowNav(true)"
+				@mouseleave="hoverRowNav(false)"
 			>
 				<span
 					v-if="expandState"
@@ -31,22 +31,20 @@
 		</div>
 		<ul class="sub-navigation">
 			<NavigationItem
-				@enter-row-nav="$emit('enterRowNav')"
-				@leave-row-nav="$emit('leaveRowNav')"
+				@hover-row-nav="hoverRowNav"
 			>
 				<span
 					class="row-nav__link add-script"
-					:class="(currentColor === 'light') ? 'add-script_selected' : ''"
+					:class="{'add-script_selected': isLightColor}"
 					@click="changeColor('light')"
 				>light</span>
 			</NavigationItem>
 			<NavigationItem
-				@enter-row-nav="$emit('enterRowNav')"
-				@leave-row-nav="$emit('leaveRowNav')"
+				@hover-row-nav="hoverRowNav"
 			>
 				<span
 					class="row-nav__link add-script"
-					:class="(currentColor === 'monokai') ? 'add-script_selected' : ''"
+					:class="{'add-script_selected': isMonokaiColor}"
 					@click="changeColor('monokai')"
 				>monokai</span>
 			</NavigationItem>
@@ -54,8 +52,8 @@
 		<div class="row-nav row-nav_close">
 			<div
 				class="row-nav__left"
-				@mouseenter="$emit('enterRowNav')"
-				@mouseleave="$emit('leaveRowNav')"
+				@mouseenter="hoverRowNav(true)"
+				@mouseleave="hoverRowNav(false)"
 			></div>
 			<span class="row-nav__link add-closetag">colors</span>
 		</div>
@@ -63,29 +61,20 @@
 </template>
 
 <script>
-import NavigationItem from '@/components/NavigationItem.vue'
-import {ref, onMounted} from 'vue'
+import NavigationItem from '@/components/NavigationItem'
+import useColorSchemes from '@/composables/useColorSchemes' //Composition API Demo
 
 export default {
 	name: 'ColorList',
 	components: {
 		NavigationItem
 	},
-	setup() {
-		let currentColor = ref('light')
-		const changeColorClass = () => {
-			document.documentElement.className = currentColor.value
-		}
-		const changeColor = (color) => {
-			currentColor.value = color
-			changeColorClass()
-		}
-
-		onMounted(changeColorClass)
-
+	setup() { //Composition API Demo
+		const {isLightColor, isMonokaiColor, changeColor} = useColorSchemes()
+		
 		return {
-			currentColor,
-			changeColorClass,
+			isLightColor,
+			isMonokaiColor,
 			changeColor
 		}
 	},
@@ -97,6 +86,9 @@ export default {
 	methods: {
 		expandList: function() {
 			this.expandState = !this.expandState
+		},
+		hoverRowNav: function(bool) {
+			this.$emit('hoverRowNav', bool)
 		}
 	}
 }
