@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+/******************************************************************************
+	Header
+******************************************************************************/
+
+.header__logo{
+	width: 300rem;
+	padding-top: 53rem;
+	text-align: center;
+}
+.header__logo svg{
+	width: 124rem;
+}
+.header__logo svg path{
+	fill: var(--fg);
+}
+.header__logo svg path:first-child,
+.header__logo svg path:last-child{
+	fill: var(--fg-brackets);
+}

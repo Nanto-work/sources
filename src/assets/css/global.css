@@ -1,0 +1,75 @@
+@charset "utf-8";
+
+/******************************************************************************
+	Colors
+******************************************************************************/
+html.light{
+	--bg:						#ffffff;
+	--bg-side:					#f3f3f3;
+	--fg:						#800000;
+	--fg-script:				#000000;
+	--fg-brackets:				#800000;
+	--fg-script-brackets:		#000000;
+	--fg-cursor:				#000000;
+	--sel:						#add6ff; /* #add6ff80 */
+	--counter:					#237893;
+}
+html.monokai{
+	--bg:						#272822;
+	--bg-side:					#1e1f1c;
+	--fg:						#f92672;
+	--fg-script:				#a6e22e;
+	--fg-brackets:				#f8f8f0;
+	--fg-script-brackets:		#f8f8f0;
+	--fg-cursor:				#f8f8f0;
+	--sel:						#575b61; /* #575b6180 */
+	--counter:					#90908a;
+}
+
+
+/******************************************************************************
+	Layout
+******************************************************************************/
+html{
+	font-size: 1px;
+	scroll-behavior: smooth;
+}
+body{
+	font-family: Consolas;
+	font-weight: 400;
+	background: #fff;
+}
+
+.wrapper{
+	display: grid;
+	grid-template-areas:	"header cont"
+							"sidebar cont";
+	grid-template-rows: 182rem auto;
+	grid-template-columns: 300rem auto;
+
+	height: 100%;
+	min-height: 100vh;
+}
+
+.header{
+	grid-area: header;
+	
+	background-color: var(--bg-side);
+	color: var(--fg);
+}
+.sidebar {
+	grid-area: sidebar;
+	
+	background-color:var(--bg-side);
+	color:var(--fg);
+}
+.content{
+	grid-area: cont;
+
+	background-color: var(--bg);
+}
+.content iframe{
+	width: 100%;
+	height: 100%;
+	border: none;
+}

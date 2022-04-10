@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+/******************************************************************************
+	Sidebar
+******************************************************************************/
+.sidebar{
+	padding: 50rem 0 20rem;
+}
+.navigation{
+	counter-reset: navigation;
+
+	font-size: 24rem;
+	line-height: 28rem;
+
+	overflow: hidden;
+}
+
+
+
+.add-tag::before{
+	content: '<';
+	color: var(--fg-brackets);
+}
+.add-tag:after{
+	content: '>';
+	color: var(--fg-brackets);
+}
+
+
+
+.navigation a{
+	color: var(--fg);
+}
+.item-nav{
+	position: relative;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+}
+.item-nav__left{
+	position: relative;
+	width: calc(5ch + 5rem);
+}
+.item-nav__left::before{
+	counter-increment: navigation;
+	content: counter(navigation);
+	position: absolute;
+	left: 5rem;
+	top: 0;
+	width: 2ch;
+	
+	text-align: right;
+	color: var(--counter);
+}
+.item-nav__link{
+	margin-left: 0;
+}
