@@ -23,18 +23,8 @@ export default {
 	},
 	data() {
 		return {
-			projects: PROJECTS,
-			actualColor: 'light',
-			hoverClass: ''
+			projects: PROJECTS
 		}
-	},
-	methods: {
-		changeColorClass: function() {
-			document.documentElement.className = this.actualColor;
-		}
-	},
-	mounted() {
-		this.changeColorClass();
 	}
 }
 </script>

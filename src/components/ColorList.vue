@@ -23,35 +23,33 @@
 			<span
 				class="row-nav__link add-tag"
 				@click="expandList"
-			>{{listTitle}}</span>
+			>colors</span>
 			<span
 				class="row-nav__right"
 				@click="expandList"
 			>···</span>
 		</div>
 		<ul class="sub-navigation">
-			<template
-				v-for="(item, i) in list"
-				:key="i"
+			<NavigationItem
+				@enter-row-nav="$emit('enterRowNav')"
+				@leave-row-nav="$emit('leaveRowNav')"
 			>
-				<NavigationList
-					v-if="item.list"
-					:list="item.list"
-					:listTitle="item.title"
-					@enter-row-nav="$emit('enterRowNav')"
-					@leave-row-nav="$emit('leaveRowNav')"
-				></NavigationList>
-				<NavigationItem
-					v-else
-					@enter-row-nav="$emit('enterRowNav')"
-					@leave-row-nav="$emit('leaveRowNav')"
-				>
-					<router-link
-						:to="{name: 'viewProject', params: {link: item.link}}"
-						class="row-nav__link add-tag"
-					>{{item.title}}</router-link>
-				</NavigationItem>
-			</template>
+				<span
+					class="row-nav__link add-script"
+					:class="(currentColor === 'light') ? 'add-script_selected' : ''"
+					@click="changeColor('light')"
+				>light</span>
+			</NavigationItem>
+			<NavigationItem
+				@enter-row-nav="$emit('enterRowNav')"
+				@leave-row-nav="$emit('leaveRowNav')"
+			>
+				<span
+					class="row-nav__link add-script"
+					:class="(currentColor === 'monokai') ? 'add-script_selected' : ''"
+					@click="changeColor('monokai')"
+				>monokai</span>
+			</NavigationItem>
 		</ul>
 		<div class="row-nav row-nav_close">
 			<div
@@ -59,22 +57,37 @@
 				@mouseenter="$emit('enterRowNav')"
 				@mouseleave="$emit('leaveRowNav')"
 			></div>
-			<span class="row-nav__link add-closetag">{{listTitle}}</span>
+			<span class="row-nav__link add-closetag">colors</span>
 		</div>
 	</li>
 </template>
 
 <script>
 import NavigationItem from '@/components/NavigationItem.vue'
+import {ref, onMounted} from 'vue'
 
 export default {
-	name: 'NavigationList',
+	name: 'ColorList',
 	components: {
 		NavigationItem
 	},
-	props: {
-		list: Array,
-		listTitle: String
+	setup() {
+		let currentColor = ref('light')
+		const changeColorClass = () => {
+			document.documentElement.className = currentColor.value
+		}
+		const changeColor = (color) => {
+			currentColor.value = color
+			changeColorClass()
+		}
+
+		onMounted(changeColorClass)
+
+		return {
+			currentColor,
+			changeColorClass,
+			changeColor
+		}
 	},
 	data() {
 		return {

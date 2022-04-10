@@ -3,3 +3,112 @@
 /******************************************************************************
 	Logo
 ******************************************************************************/
+.logo-animate-wrap{
+	position:	fixed;
+	width:	700rem;
+	height: 226rem;
+	top: calc(50% - 113rem);
+	left: calc(50% - 250rem);
+
+	font-family: 'Nanto-web';
+	font-size: 200rem;
+	font-weight: 400;
+	line-height: 1;
+	color: var(--fg);
+	
+	cursor: default;
+	pointer-events: none;
+
+	opacity:1;
+}
+.logo-word{
+	box-sizing: content-box;
+	position: relative;
+	width: fit-content;
+	
+	margin: 0 auto;
+	padding: 0 20rem;
+	
+	white-space: nowrap;
+	overflow: hidden;
+}
+.logo-word::after{
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 200rem;
+	width: 20rem;
+	
+	background-color: var(--fg-cursor);
+	z-index: 100;
+}
+.logo-word__symbol{
+	position: relative;
+	display: inline-block;
+	height: 226rem;
+}
+.logo-word__fade{
+	position: relative;
+	display: inline-block;
+	
+	vertical-align: top;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.logo-word__symbol_brackets{
+	color: var(--fg-brackets);
+}
+
+/******************************************************************************
+	Animations
+******************************************************************************/
+.logo-animate-wrap{
+	animation: logo-move linear 2s 1 normal forwards 14s;
+}
+.logo-word{
+	animation:	logo-typing-forward 3s steps(7, end),
+				logo-rotation linear 3s 1 normal forwards 11s;
+}
+.logo-word__fade{
+	animation: logo-typing-backward 2s steps(4, end) forwards 6s;
+}
+.logo-word__symbol_nonrotate{
+	animation: logo-contr-rotation linear 3s 1 normal forwards 11s;
+}
+.logo-word::after{
+	animation:	logo-blink-caret 1s step-end 3 forwards 3s,
+				logo-blink-caret-last 1s step-start 3 forwards 8s;
+}
+
+
+@keyframes logo-typing-forward{
+	0%	{width: 0%;}
+	100%{width: 100%;}
+}
+@keyframes logo-typing-backward{
+	0%	{width: 400rem;}
+	100%{width: 0;}
+}
+@keyframes logo-rotation{
+	50%	{transform: rotate(45deg) scale(1, 1);}
+	100%{transform: rotate(45deg) scale(0.7, 0.7);}
+}
+@keyframes logo-contr-rotation{
+	50% {transform: rotate(-45deg);}
+	100%{transform: rotate(-45deg);}
+}
+@keyframes logo-move{
+	50% {top: 1rem; left: -200rem; opacity: 1;}
+	100%{top: 1rem; left: -200rem; opacity: 0;}
+}
+@keyframes logo-blink-caret{
+	0%	{background-color:	var(--bg);}
+	50%	{background-color:	var(--fg-cursor);}
+	100%{background-color:	var(--fg-cursor); right: 110rem;}
+}
+@keyframes logo-blink-caret-last{
+	0%	{background-color: transparent;}
+	50%	{background-color: var(--fg-cursor);}
+	100%{background-color: transparent;}
+}

@@ -8,31 +8,45 @@
 			<NavigationList
 				:list="projects"
 				:listTitle="'projects'"
-				@enter-row-nav="hoverClass = 'navigation_showshrink'"
-				@leave-row-nav="hoverClass = null"
+				@enter-row-nav="hoverClass = 'navigation_showexpand'"
+				@leave-row-nav="hoverClass = ''"
 			></NavigationList>
+			<NavigationItem
+				@enter-row-nav="hoverClass = 'navigation_showexpand'"
+				@leave-row-nav="hoverClass = ''"
+			>
+				<router-link
+					:to="{name: 'viewContacts'}"
+					class="row-nav__link add-tag"
+				>contacts</router-link>
+			</NavigationItem>
+			<ColorList
+				@enter-row-nav="hoverClass = 'navigation_showexpand'"
+				@leave-row-nav="hoverClass = ''"
+			></ColorList>
 		</ul>
 	</aside>
 </template>
 
 <script>
 import NavigationList from '@/components/NavigationList.vue'
-/*import NavigationItem from '@/components/NavigationItem.vue'*/
+import NavigationItem from '@/components/NavigationItem.vue'
+import ColorList from '@/components/ColorList.vue'
 
 export default {
 	name: 'Sidebar',
 	components: {
-/*		NavigationItem,*/
-		NavigationList
+		NavigationItem,
+		NavigationList,
+		ColorList
 	},
 	props: {
-		projects: Array
+		projects: Array,
 	},
 	data() {
 		return {
-			actualColor: 'light',
-			hoverClass: null
-		};
+			hoverClass: ''
+		}
 	}
 }
 
