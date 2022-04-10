@@ -26,6 +26,13 @@ input:active{
 	outline:none;
 	text-decoration:none;
 }
+button,
+button:hover,
+button:focus,
+button:active{
+	outline: none;
+	border: none;
+}
 html,
 body{
 	height: 100%;

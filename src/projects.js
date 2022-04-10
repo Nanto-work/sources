@@ -17,6 +17,19 @@ export const PROJECTS = [
 			{
 				title: 'qip-2',
 				link: ''	
+			},
+			{
+				title: 'qip-3',
+				list:[
+					{
+						title: 'qip-3-1',
+						link: ''
+					},
+					{
+						title: 'qip-3-2',
+						link: ''	
+					}
+				]
 			}
 		]
 	}

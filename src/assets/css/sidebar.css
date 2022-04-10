@@ -11,8 +11,6 @@
 
 	font-size: 24rem;
 	line-height: 28rem;
-
-	overflow: hidden;
 }
 
 
@@ -74,6 +72,14 @@
 	
 	color: #808080;
 	cursor: pointer;
+}
+
+.icon-plus{
+	opacity: 0;
+	transition: opacity linear 0.2s;
+}
+.navigation_showshrink .icon-plus{
+	opacity: 1;
 }
 
 

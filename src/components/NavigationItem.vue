@@ -1,14 +1,12 @@
 <template>
 	<li class="navigation__item">
-		<div
-			class="row-nav"
-			v-if="!itemData.list"
-		>
-			<div class="row-nav__left"></div>
-			<router-link
-				class="row-nav__link add-tag"
-				:to="{name: 'viewProject', params: {link: itemData.link}}"
-			>{{itemData.title}}</router-link>
+		<div class="row-nav">
+			<div
+				class="row-nav__left"
+				@mouseenter="$emit('enterRowNav')"
+				@mouseleave="$emit('leaveRowNav')"
+			></div>
+			<a href="#" class="row-nav__link add-tag">{{ itemData.title }}</a>
 		</div>
 	</li>
 </template>
