@@ -27,22 +27,18 @@
 }
 
 
-
-.navigation a{
-	color: var(--fg);
-}
-.item-nav{
+.row-nav{
 	position: relative;
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: flex-start;
 	align-items: stretch;
 }
-.item-nav__left{
+.row-nav__left{
 	position: relative;
 	width: calc(5ch + 5rem);
 }
-.item-nav__left::before{
+.row-nav__left::before{
 	counter-increment: navigation;
 	content: counter(navigation);
 	position: absolute;
@@ -53,6 +49,41 @@
 	text-align: right;
 	color: var(--counter);
 }
-.item-nav__link{
+.row-nav__expand{
+	position: absolute;
+	width: 20rem;
+	height: 20rem;
+	top: 5rem;
+	left: 3.2ch;
+	
+	background-color: transparent;
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	background-size: contain;
+
+	cursor: pointer;
+}
+.row-nav__link{
 	margin-left: 0;
+
+	color: var(--fg);
+	cursor: pointer;
+}
+.row-nav__right{
+	transform: translateY(1rem);
+	
+	color: #808080;
+	cursor: pointer;
+}
+
+
+
+.sub-navigation .row-nav__link{
+	margin-left: 2ch;
+}
+.sub-navigation .sub-navigation .row-nav__link{
+	margin-left: 4ch;
+}
+.sub-navigation .sub-navigation .sub-navigation .row-nav__link{
+	margin-left: 6ch;
 }

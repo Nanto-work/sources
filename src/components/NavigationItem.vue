@@ -1,13 +1,13 @@
 <template>
 	<li class="navigation__item">
 		<div
+			class="row-nav"
 			v-if="!itemData.list"
-			class="item-nav"
 		>
-			<div class="item-nav__left"></div>
+			<div class="row-nav__left"></div>
 			<router-link
+				class="row-nav__link add-tag"
 				:to="{name: 'viewProject', params: {link: itemData.link}}"
-				class="item-nav__link add-tag"
 			>{{itemData.title}}</router-link>
 		</div>
 	</li>
