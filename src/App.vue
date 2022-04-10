@@ -8,10 +8,9 @@
 			>
 			</HeaderBurger>
 		</header>
-		<SidebarComponent
+		<TheSidebar
 			:class="{'sidebar_open': sidebarOpen}"
-			:projects="projects"
-		></SidebarComponent>
+		></TheSidebar>
 		<section class="content">
 			<router-view/>
 		</section>
@@ -21,19 +20,17 @@
 <script>
 import HeaderLogo from '@/components/HeaderLogo'
 import HeaderBurger from '@/components/HeaderBurger'
-import SidebarComponent from '@/components/SidebarComponent'
-import {PROJECTS} from './projects.js'
+import TheSidebar from '@/components/TheSidebar'
 
 export default {
 	name: 'WebFolder',
 	components: {
 		HeaderLogo,
 		HeaderBurger,
-		SidebarComponent
+		TheSidebar
 	},
 	data() {
 		return {
-			projects: PROJECTS,
 			sidebarOpen: false
 		}
 	},

@@ -29,19 +29,18 @@
 import SidebarList from '@/components/SidebarList'
 import SidebarItem from '@/components/SidebarItem'
 import SidebarColors from '@/components/SidebarColors'
+import {PROJECTS} from '@/projects.js'
 
 export default {
-	name: 'SidebarComponent',
+	name: 'TheSidebar',
 	components: {
 		SidebarItem,
 		SidebarList,
 		SidebarColors
 	},
-	props: {
-		projects: Array,
-	},
 	data() {
 		return {
+			projects: PROJECTS,
 			hoverClass: false
 		}
 	},
