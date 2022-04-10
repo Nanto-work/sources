@@ -1,24 +1,24 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import LogoAnimateView from '@/views/LogoAnimateView'
-import ProjectView from '@/views/ProjectView'
-import ContactsView from '@/views/ContactsView'
+import ViewLogoAnimate from '@/views/ViewLogoAnimate'
+import ViewProject from '@/views/ViewProject'
+import ViewContacts from '@/views/ViewContacts'
 
 const routes = [
 	{
 		path: '/',
-		name: 'viewLogoAnimate',
-		component: LogoAnimateView
+		name: 'main',
+		component: ViewLogoAnimate
 	},
 	{
-		path: '/project',
-		name: 'viewProject',
-		component: ProjectView,
+		path: '/projects',
+		name: 'projects',
+		component: ViewProject,
 		props: true
 	},
 	{
 		path: '/contacts',
-		name: 'viewContacts',
-		component: ContactsView
+		name: 'contacts',
+		component: ViewContacts
     }
 ]
 

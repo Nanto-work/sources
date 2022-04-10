@@ -8,7 +8,7 @@
 
 <script>
 export default {
-	name: 'ProjectView',
+	name: 'ViewProject',
 	props: {
 		link: String
 	}

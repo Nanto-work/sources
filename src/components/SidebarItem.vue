@@ -13,7 +13,7 @@
 
 <script>
 export default {
-	name: 'NavigationItem',
+	name: 'SidebarItem',
 	data() {
 		return {
 			burgerAnimate: true,

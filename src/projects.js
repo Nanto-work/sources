@@ -1,11 +1,11 @@
 export const PROJECTS = [
 	{
 		title: 'project-1',
-		link: 'projects/1/index.html'
+		link: '/test_projects/1/index.html'
 	},
 	{
 		title: 'project-2',
-		link: 'projects/2/index.html'
+		link: '/test_projects/2/index.html'
 	},
 	{
 		title: 'qip',

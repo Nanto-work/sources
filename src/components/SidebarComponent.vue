@@ -5,37 +5,37 @@
 			:class="{'navigation_showexpand': hoverClass}"
 			@click.prevent
 		>
-			<NavigationList
+			<SidebarList
 				:list="projects"
 				:listTitle="'projects'"
 				@hover-row-nav="toggleHoverClass"
-			></NavigationList>
-			<NavigationItem
+			></SidebarList>
+			<SidebarItem
 				@hover-row-nav="toggleHoverClass"
 			>
 				<router-link
-					:to="{name: 'viewContacts'}"
+					:to="{name: 'contacts'}"
 					class="row-nav__link add-tag"
 				>contacts</router-link>
-			</NavigationItem>
-			<ColorList
+			</SidebarItem>
+			<SidebarColors
 				@hover-row-nav="toggleHoverClass"
-			></ColorList>
+			></SidebarColors>
 		</ul>
 	</aside>
 </template>
 
 <script>
-import NavigationList from '@/components/NavigationList'
-import NavigationItem from '@/components/NavigationItem'
-import ColorList from '@/components/ColorList'
+import SidebarList from '@/components/SidebarList'
+import SidebarItem from '@/components/SidebarItem'
+import SidebarColors from '@/components/SidebarColors'
 
 export default {
 	name: 'SidebarComponent',
 	components: {
-		NavigationItem,
-		NavigationList,
-		ColorList
+		SidebarItem,
+		SidebarList,
+		SidebarColors
 	},
 	props: {
 		projects: Array,

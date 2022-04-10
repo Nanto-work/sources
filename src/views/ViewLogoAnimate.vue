@@ -12,8 +12,7 @@
 </template>
 
 <script>
-
 export default {
-	name: 'LogoAnimateView'
+	name: 'ViewLogoAnimate'
 }
 </script>

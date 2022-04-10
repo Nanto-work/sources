@@ -34,21 +34,21 @@
 				v-for="(item, i) in list"
 				:key="i"
 			>
-				<NavigationList
+				<SidebarList
 					v-if="item.list"
 					:list="item.list"
 					:listTitle="item.title"
 					@hover-row-nav="hoverRowNav"
-				></NavigationList>
-				<NavigationItem
+				></SidebarList>
+				<SidebarItem
 					v-else
 					@hover-row-nav="hoverRowNav"
 				>
 					<router-link
-						:to="{name: 'viewProject', params: {link: item.link}}"
+						:to="{name: 'projects', params: {link: item.link}}"
 						class="row-nav__link add-tag"
 					>{{item.title}}</router-link>
-				</NavigationItem>
+				</SidebarItem>
 			</template>
 		</ul>
 		<div class="row-nav row-nav_close">
@@ -63,12 +63,12 @@
 </template>
 
 <script>
-import NavigationItem from '@/components/NavigationItem'
+import SidebarItem from '@/components/SidebarItem'
 
 export default {
-	name: 'NavigationList',
+	name: 'SidebarList',
 	components: {
-		NavigationItem
+		SidebarItem
 	},
 	props: {
 		list: Array,

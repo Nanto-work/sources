@@ -25,7 +25,7 @@ import SidebarComponent from '@/components/SidebarComponent'
 import {PROJECTS} from './projects.js'
 
 export default {
-	name: 'MainApp',
+	name: 'WebFolder',
 	components: {
 		HeaderLogo,
 		HeaderBurger,

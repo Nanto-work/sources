@@ -30,7 +30,7 @@
 			>···</span>
 		</div>
 		<ul class="sub-navigation">
-			<NavigationItem
+			<SidebarItem
 				@hover-row-nav="hoverRowNav"
 			>
 				<span
@@ -38,8 +38,8 @@
 					:class="{'add-script_selected': isLightColor}"
 					@click="changeColor('light')"
 				>light</span>
-			</NavigationItem>
-			<NavigationItem
+			</SidebarItem>
+			<SidebarItem
 				@hover-row-nav="hoverRowNav"
 			>
 				<span
@@ -47,7 +47,7 @@
 					:class="{'add-script_selected': isMonokaiColor}"
 					@click="changeColor('monokai')"
 				>monokai</span>
-			</NavigationItem>
+			</SidebarItem>
 		</ul>
 		<div class="row-nav row-nav_close">
 			<div
@@ -61,13 +61,13 @@
 </template>
 
 <script>
-import NavigationItem from '@/components/NavigationItem'
+import SidebarItem from '@/components/SidebarItem'
 import useColorSchemes from '@/composables/useColorSchemes' //Composition API Demo
 
 export default {
-	name: 'ColorList',
+	name: 'SidebarColors',
 	components: {
-		NavigationItem
+		SidebarItem
 	},
 	setup() { //Composition API Demo
 		const {isLightColor, isMonokaiColor, changeColor} = useColorSchemes()
