@@ -4,15 +4,9 @@
 	Base64
 ******************************************************************************/
 
-html.light .icon-plus{
-	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 20 20' enable-background='new 0 0 20 20' xml:space='preserve'%3E%3Cpath fill='%23B6B6B6' d='M0,20V0h20v20H0z M2,18h16V2H2V18z'/%3E%3Cpath fill='%236B6B6B' d='M4,9h12v2H4V9z'/%3E%3Cpath fill='%236B6B6B' d='M9,4h2v12H9V4z'/%3E%3C/svg%3E");
+html.light .icon-expand{
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' width='20' height='20' x='0px' y='0px' viewBox='0 0 20 20' enable-background='new 0 0 20 20' xml:space='preserve'%3E%3Cpolyline fill='none' stroke='%23424242' stroke-width='1.5' stroke-miterlimit='10' points='2,5.6465 10,13.6465 18,5.6465 '/%3E%3C/svg%3E");
 }
-html.monokai .icon-plus{
-	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 20 20' enable-background='new 0 0 20 20' xml:space='preserve'%3E%3Cpath fill='%235A5A5A' d='M0,20V0h20v20H0z M2,18h16V2H2V18z'/%3E%3Cpath fill='%23C5C5C5' d='M4,9h12v2H4V9z'/%3E%3Cpath fill='%23C5C5C5' d='M9,4h2v12H9V4z'/%3E%3C/svg%3E");
-}
-html.light .icon-minus{
-	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 20 20' enable-background='new 0 0 20 20' xml:space='preserve'%3E%3Cpath fill='%23B6B6B6' d='M0,20V0h20v20H0z M2,18h16V2H2V18z'/%3E%3Cpath fill='%236B6B6B' d='M4,9h12v2H4V9z'/%3E%3C/svg%3E");
-}
-html.monokai .icon-minus{
-	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 20 20' enable-background='new 0 0 20 20' xml:space='preserve'%3E%3Cpath fill='%235A5A5A' d='M0,20V0h20v20H0z M2,18h16V2H2V18z'/%3E%3Cpath fill='%23C5C5C5' d='M4,9h12v2H4V9z'/%3E%3C/svg%3E");
+html.monokai .icon-expand{
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' width='20' height='20' x='0px' y='0px' viewBox='0 0 20 20' enable-background='new 0 0 20 20' xml:space='preserve'%3E%3Cpolyline fill='none' stroke='%23c5c5c5' stroke-width='1.5' stroke-miterlimit='10' points='2,5.6465 10,13.6465 18,5.6465 '/%3E%3C/svg%3E");
 }

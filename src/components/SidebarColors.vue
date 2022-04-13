@@ -1,6 +1,6 @@
 <template>
 	<li
-		class="navigation__item expanding-item"
+		class="navigation__item sidebar-colors expanding-item"
 		:class="{'expanding-item_open': expandState}"
 	>
 		<div class="row-nav">
@@ -10,13 +10,7 @@
 				@mouseleave="hoverRowNav(false)"
 			>
 				<span
-					v-if="expandState"
-					class="row-nav__expand icon-minus"
-					@click="expandList"
-				></span>
-				<span
-					v-else
-					class="row-nav__expand icon-plus"
+					class="row-nav__expand icon-expand"
 					@click="expandList"
 				></span>
 			</div>
@@ -69,7 +63,7 @@ export default {
 	components: {
 		SidebarItem
 	},
-	setup() { //Composition API Demo
+	setup() { // Composition API Demo
 		const {isLightColor, isMonokaiColor, changeColor} = useColorSchemes()
 		
 		return {

@@ -21,19 +21,25 @@ html.light{
 	--fg-brackets:				#800000;
 	--fg-script-brackets:		#000000;
 	--fg-cursor:				#000000;
-	--sel:						#add6ff; /* #add6ff80 */
-	--counter:					#237893;
+	--sel:						#add6ff;
+	--counter:					#3f7793;
+	--counter-sel:				#14216e;
+	--nav-border:				#d3d3d3;
+	--nav-border-sel:			#d3d3d3;
 }
 html.monokai{
 	--bg:						#272822;
 	--bg-side:					#1e1f1c;
 	--fg:						#f92672;
 	--fg-script:				#a6e22e;
-	--fg-brackets:				#f8f8f0;
-	--fg-script-brackets:		#f8f8f0;
-	--fg-cursor:				#f8f8f0;
-	--sel:						#575b61; /* #575b6180 */
+	--fg-brackets:				#f8f8f2;
+	--fg-script-brackets:		#f8f8f2;
+	--fg-cursor:				#f8f8f2;
+	--sel:						#878b9180;
 	--counter:					#90908a;
+	--counter-sel:				#c2c2bf;
+	--nav-border:				#464741;
+	--nav-border-sel:			#464741;
 }
 
 

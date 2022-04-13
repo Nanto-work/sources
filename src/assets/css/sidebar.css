@@ -19,11 +19,12 @@
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: flex-start;
-	align-items: stretch;
+	align-items: flex-start;
 }
 .row-nav__left{
 	position: relative;
 	width: calc(5ch + 5rem);
+	height: 33rem;
 }
 .row-nav__left::before{
 	counter-increment: navigation;
@@ -37,6 +38,8 @@
 	color: var(--counter);
 }
 .row-nav__link{
+	display: inline-block;
+
 	margin-left: 0;
 
 	color: var(--fg);
@@ -72,6 +75,8 @@
 	background-size: contain;
 
 	cursor: pointer;
+
+	transform: rotate(-90deg);
 }
 .row-nav__link.add-closetag{
 	/*opacity: 0.5;*/
@@ -94,8 +99,9 @@
 }
 
 .sub-navigation{
-	display: none;
 	position: relative;
+	max-height: 0;
+	overflow: hidden;
 }
 .sub-navigation::before{
 	content: '';
@@ -103,13 +109,16 @@
 	width: 0;
 	height: 100%;
 	top: 0;
+	border-left: 1rem solid var(--nav-border);
 }
-html.light .sub-navigation::before{
-	border-left: 2rem solid #d3d3d3;
-}
-html.monokai .sub-navigation::before{
-	border-left: 2rem solid #464741;
-}
+/*.sub-navigation .sub-navigation::after{
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 100%;
+	top: 0;
+	border-left: 1rem solid var(--nav-border-sel);
+}*/
 
 .sub-navigation .row-nav__link{
 	margin-left: 2ch;
@@ -137,6 +146,17 @@ html.monokai .sub-navigation::before{
 	left: calc(11ch + 5rem);
 }
 
+/*.sub-navigation .sub-navigation::after{
+	left: calc(5ch + 5rem);
+}
+.sub-navigation .sub-navigation .sub-navigation::after{
+	left: calc(7ch + 5rem);
+}
+.sub-navigation .sub-navigation .sub-navigation .sub-navigation::after{
+	left: calc(9ch + 5rem);
+}*/
+
+
 
 
 /******************************************************************************
@@ -148,20 +168,24 @@ html.monokai .sub-navigation::before{
 .expanding-item_open > .row-nav .row-nav__right{
 	display: none;
 }
-.expanding-item_open > .row-nav .icon-minus{
+.expanding-item_open > .row-nav .icon-expand{
 	opacity: 0;
+	transform: rotate(0deg);
 	transition: opacity linear 0.2s;
 }
-.navigation_showexpand .expanding-item_open > .row-nav .icon-minus{
+.navigation_showexpand .expanding-item_open > .row-nav .icon-expand{
 	opacity: 1;
 }
 .expanding-item_open > .sub-navigation{
-	display: block;
+	max-height: none;
 }
 
 /******************************************************************************
-	Colors
+	Sidebar Colors
 ******************************************************************************/
+/* .sidebar-colors .row-nav__left::before{
+	display: none;
+} */
 .row-nav__link.add-script{
 	color:var(--fg-script);
 }
@@ -174,6 +198,10 @@ html.monokai .sub-navigation::before{
 	content:'}';	
 }
 
+
+/******************************************************************************
+	Additional colors
+******************************************************************************/
 .router-link-active,
 .add-script_selected{
 	background-color:var(--sel);
